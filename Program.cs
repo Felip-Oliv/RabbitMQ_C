@@ -2,7 +2,7 @@
 using System.Text;
 using RabbitMQ.Client;
 
-Console.WriteLine("Memama!");
+Console.WriteLine("Testes!");
 
 ConnectionFactory factory = new ConnectionFactory()
 {
