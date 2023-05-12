@@ -22,17 +22,22 @@ using(IConnection connection = factory.CreateConnection())
             arguments: null
 
         );
-        string texto = "mensagem teste";
-        byte[] mensagem = Encoding.UTF8.GetBytes(texto);
-        channel.BasicPublish(
+       
+        while(true){
+            Thread.Sleep(100);
+            string texto = DateTime.Now.ToString();
+            byte[] mensagem = Encoding.UTF8.GetBytes(texto);
+            channel.BasicPublish(
             body: mensagem,
             routingKey: "mensagens",
             basicProperties: null,
             exchange: ""
 
         );
+        Console.WriteLine("Mensagem enviada com sucessos");
+        }
 
     }
 }
-Console.WriteLine("Mensagem enviada com sucessos");
+
 Console.ReadKey();
